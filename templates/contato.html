@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Contato - DuploTech 6040{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Entre em Contato</h1>
+        <p>Estamos aqui para ajudar com suas dúvidas e solicitações</p>
+    </div>
+
+    <div class="contact-content">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Informações de Contato</h2>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Endereço</h3>
+                        <p>Av. Tecnologia, 1234<br>São Paulo - SP, 01234-567</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Telefone</h3>
+                        <p>(11) 3456-7890</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>contato@duplotech.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Horário de Atendimento</h3>
+                        <p>Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Envie uma Mensagem</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Selecione um assunto</option>
+                            <option value="suporte">Suporte Técnico</option>
+                            <option value="vendas">Informações Comerciais</option>
+                            <option value="parceria">Parcerias</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

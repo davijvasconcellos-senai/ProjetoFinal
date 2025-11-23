@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Documentação - DuploTech 6040{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Documentação Técnica</h1>
+        <p>Manuais, guias e documentação completa da plataforma</p>
+    </div>
+
+    <div class="docs-content">
+        <div class="docs-grid">
+            <div class="docs-category">
+                <h2><i class="fas fa-book"></i> Manuais de Operação</h2>
+                <div class="docs-list">
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Manual do Usuário - Completo</span>
+                    </a>
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Guia de Instalação</span>
+                    </a>
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Manual de Configuração</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="docs-category">
+                <h2><i class="fas fa-cogs"></i> Manuais Técnicos</h2>
+                <div class="docs-list">
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Especificações Técnicas</span>
+                    </a>
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Manual de Manutenção</span>
+                    </a>
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Procedimentos de Segurança</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="docs-category">
+                <h2><i class="fas fa-chart-line"></i> Guias de Análise</h2>
+                <div class="docs-list">
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Interpretação de Dados</span>
+                    </a>
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Guia de Alertas e Notificações</span>
+                    </a>
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Análise Preditiva - Conceitos</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="docs-category">
+                <h2><i class="fas fa-wrench"></i> Solução de Problemas</h2>
+                <div class="docs-list">
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Guia de Troubleshooting</span>
+                    </a>
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Procedimentos de Emergência</span>
+                    </a>
+                    <a href="#" class="doc-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Checklist de Manutenção</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="docs-support">
+            <h3>Precisa de ajuda adicional?</h3>
+            <p>Nossa equipe de suporte está disponível para auxiliar com qualquer dúvida técnica.</p>
+            <div class="support-actions">
+                <a href="{{ url_for('ajuda') }}" class="btn btn-primary">
+                    <i class="fas fa-headset"></i> Central de Ajuda
+                </a>
+                <a href="{{ url_for('contato') }}" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Contatar Suporte
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

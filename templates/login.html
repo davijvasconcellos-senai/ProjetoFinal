@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}Login - DuploTech 6040{% endblock %}
+
+{% block extra_css %}
+<style>
+    .login-container {
+        min-height: calc(100vh - 200px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, var(--light) 0%, #ffffff 100%);
+    }
+    
+    .login-box {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+        border: 1px solid #e0e0e0;
+    }
+    
+    .login-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .login-header .logo {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .login-header h2 {
+        color: var(--primary);
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--dark);
+    }
+    
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+    
+    .form-group input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+    
+    .login-button {
+        width: 100%;
+        padding: 12px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 10px;
+    }
+    
+    .login-button:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+    }
+    
+    .login-footer {
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+    
+    .login-footer a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .demo-accounts {
+        margin-top: 20px;
+        padding: 15px;
+        background: var(--light);
+        border-radius: 6px;
+        font-size: 0.9rem;
+    }
+    
+    .demo-accounts h4 {
+        margin-bottom: 10px;
+        color: var(--dark);
+    }
+    
+    .demo-account {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        padding: 5px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .demo-account:last-child {
+        border-bottom: none;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <div class="login-header">
+            <div class="logo">
+                <i class="fas fa-tools" style="font-size: 2.5rem; color: var(--primary);"></i>
+            </div>
+            <h2>DuploTech 6040</h2>
+            <p>Faça login em sua conta</p>
+        </div>
+        
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" required placeholder="Digite seu usuário">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+            </div>
+            
+            <button type="submit" class="login-button">
+                <i class="fas fa-sign-in-alt"></i> Entrar
+            </button>
+        </form>
+        
+        <div class="demo-accounts">
+            <h4>Contas de Demonstração:</h4>
+            <div class="demo-account">
+                <span>Admin:</span>
+                <span><strong>admin</strong> / <strong>admin123</strong></span>
+            </div>
+            <div class="demo-account">
+                <span>Operador:</span>
+                <span><strong>operador</strong> / <strong>op123</strong></span>
+            </div>
+            <div class="demo-account">
+                <span>Técnico:</span>
+                <span><strong>tecnico</strong> / <strong>tec123</strong></span>
+            </div>
+        </div>
+        
+        <div class="login-footer">
+            <p>Não tem uma conta? <a href="{{ url_for('registro') }}">Cadastre-se aqui</a></p>
+            <p><a href="{{ url_for('index') }}">← Voltar para a página inicial</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
