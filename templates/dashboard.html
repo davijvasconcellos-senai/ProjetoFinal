@@ -6,79 +6,92 @@
 <style>
     .dashboard-header {
         background: white;
-        padding: 30px 0;
-        border-bottom: 1px solid #e0e0e0;
+        padding: 2rem 0;
+        border-bottom: 1px solid #e2e8f0;
     }
     
     .dashboard-welcome h1 {
-        color: var(--primary);
-        margin-bottom: 10px;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
     }
     
     .dashboard-welcome p {
-        color: #666;
-        font-size: 1.1rem;
+        color: #64748b;
+        font-size: 1.125rem;
     }
     
     .dashboard-content {
-        padding: 40px 0;
-        background: var(--light);
+        padding: 2rem 0;
+        background: #f8fafc;
     }
     
     .metrics-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-bottom: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
     }
     
     .metric-card {
         background: white;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         text-align: center;
-        border-left: 4px solid var(--primary);
+        border-left: 4px solid #3b82f6;
+        transition: transform 0.2s;
+    }
+    
+    .metric-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    .metric-icon {
+        font-size: 2rem;
+        color: #3b82f6;
+        margin-bottom: 1rem;
     }
     
     .metric-value {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: bold;
-        color: var(--primary);
-        margin: 10px 0;
+        color: #1e293b;
+        margin: 0.5rem 0;
     }
     
     .metric-label {
-        color: #666;
-        font-size: 0.9rem;
+        color: #64748b;
+        font-size: 0.875rem;
     }
     
     .dashboard-grid {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        gap: 30px;
+        gap: 2rem;
     }
     
     .status-panel, .alerts-panel {
         background: white;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     
     .panel-title {
-        color: var(--primary);
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid var(--light);
+        color: #1e293b;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #f1f5f9;
+        font-size: 1.25rem;
     }
     
     .status-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 0;
-        border-bottom: 1px solid #f0f0f0;
+        padding: 1rem 0;
+        border-bottom: 1px solid #f1f5f9;
     }
     
     .status-item:last-child {
@@ -89,40 +102,52 @@
         flex: 1;
     }
     
+    .status-info strong {
+        color: #1e293b;
+        font-weight: 600;
+    }
+    
+    .status-description {
+        font-size: 0.875rem;
+        color: #64748b;
+        margin-top: 0.25rem;
+    }
+    
     .status-value {
-        font-weight: 500;
-        color: var(--dark);
+        font-weight: 600;
+        color: #1e293b;
     }
     
     .alert-item {
-        padding: 15px;
-        margin-bottom: 15px;
-        border-radius: 6px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
         border-left: 4px solid;
     }
     
     .alert-warning {
-        background: #fff3cd;
-        border-left-color: var(--warning);
-        color: #856404;
+        background: #fffbeb;
+        border-left-color: #f59e0b;
+        color: #92400e;
     }
     
     .alert-success {
-        background: #d1edff;
-        border-left-color: var(--success);
-        color: #155724;
+        background: #ecfdf5;
+        border-left-color: #10b981;
+        color: #065f46;
     }
     
     .alert-info {
-        background: #d1edff;
-        border-left-color: var(--accent);
-        color: #0c5460;
+        background: #f0f9ff;
+        border-left-color: #06b6d4;
+        color: #0e7490;
     }
     
     .alert-time {
-        font-size: 0.8rem;
-        color: #666;
-        margin-top: 5px;
+        font-size: 0.75rem;
+        color: inherit;
+        margin-top: 0.5rem;
+        opacity: 0.8;
     }
 </style>
 {% endblock %}
@@ -228,9 +253,14 @@
 <script>
     // Atualização automática do dashboard
     function updateDashboard() {
-        console.log('Atualizando dashboard...');
-        // Simulação de atualização - em produção, faria fetch para API
-        document.getElementById('update-time').textContent = new Date().toLocaleTimeString('pt-BR');
+        fetch('{{ url_for("api_machine_status") }}')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Dados atualizados:', data);
+                // Aqui você pode atualizar os elementos da página
+                document.getElementById('update-time').textContent = data.current_time;
+            })
+            .catch(error => console.error('Erro ao atualizar dashboard:', error));
     }
 
     // Atualizar a cada 30 segundos

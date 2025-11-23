@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Início - DuploTech 6040{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h2>Manutenção Preditiva para Duplotech Laser 6040</h2>
+        <p>Monitore, analise e previna falhas em sua máquina com nossa plataforma inteligente de manutenção preditiva.</p>
+        <div class="hero-buttons">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('dashboard') }}" class="btn btn-light">
+                    <i class="fas fa-tachometer-alt"></i> Acessar Dashboard
+                </a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn btn-light">
+                    <i class="fas fa-play-circle"></i> Ver Demonstração
+                </a>
+            {% endif %}
+            <a href="{{ url_for('sobre') }}" class="btn btn-outline">Saiba Mais</a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <div class="section-title">
+            <h2>Recursos Principais</h2>
+            <p>Nossa plataforma oferece todas as ferramentas necessárias para maximizar a eficiência e vida útil da sua Duplotech Laser 6040</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Análise Preditiva</h3>
+                <p>Algoritmos de IA que preveem falhas antes que ocorram, permitindo manutenção proativa.</p>
+                <a href="{{ url_for('analises') }}" class="feature-link">Saiba mais →</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Monitoramento em Tempo Real</h3>
+                <p>Acompanhe o desempenho da máquina e receba alertas instantâneos sobre anomalias.</p>
+                <a href="{{ url_for('dashboard') }}" class="feature-link">Saiba mais →</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Relatórios Detalhados</h3>
+                <p>Gere relatórios completos sobre o status, histórico de manutenção e eficiência operacional.</p>
+                <a href="{{ url_for('analises') }}" class="feature-link">Saiba mais →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dashboard Preview -->
+<section class="dashboard-preview">
+    <div class="container">
+        <div class="dashboard-content">
+            <div class="dashboard-text">
+                <h2>Dashboard Intuitivo</h2>
+                <p>Visualize todos os dados importantes da sua Duplotech Laser 6040 em um painel centralizado e fácil de usar.</p>
+                <p>Monitore temperatura, vibração, consumo energético e outros parâmetros críticos em tempo real.</p>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Acessar Dashboard</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-primary">Fazer Login para Acessar</a>
+                {% endif %}
+            </div>
+            <div class="dashboard-image">
+                <div class="dashboard-placeholder">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <p>Visualização do Dashboard</p>
+                    <small>Dados em tempo real da sua máquina</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Status Section -->
+<section class="status">
+    <div class="container">
+        <div class="section-title">
+            <h2>Status da Máquina</h2>
+            <p>Verifique o status atual da sua Duplotech Laser 6040</p>
+        </div>
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-icon status-ok">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="status-text">
+                    <h3>Operacional</h3>
+                    <p>Máquina funcionando normalmente</p>
+                    <span class="status-time">Atualizado: <span id="update-time">{{ current_time }}</span></span>
+                </div>
+            </div>
+            <div class="status-card">
+                <div class="status-icon status-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="status-text">
+                    <h3>Manutenção Preventiva</h3>
+                    <p>Agendada para 15 dias</p>
+                    <span class="status-info">Próxima: {{ proxima_manutencao }}</span>
+                </div>
+            </div>
+            <div class="status-card">
+                <div class="status-icon status-info">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="status-text">
+                    <h3>Consumo Energético</h3>
+                    <p>Dentro dos parâmetros normais</p>
+                    <span class="status-value">{{ consumo_energetico }}</span>
+                </div>
+            </div>
+            <div class="status-card">
+                <div class="status-icon status-ok">
+                    <i class="fas fa-thermometer-half"></i>
+                </div>
+                <div class="status-text">
+                    <h3>Temperatura</h3>
+                    <p>Estável e controlada</p>
+                    <span class="status-value">{{ temperatura }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Pronto para otimizar a manutenção da sua Duplotech Laser 6040?</h2>
+        <p>Junte-se a centenas de empresas que já utilizam nossa plataforma para reduzir custos e aumentar a produtividade.</p>
+        <div class="cta-buttons">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('dashboard') }}" class="btn btn-light">Continuar para Dashboard</a>
+            {% else %}
+                <a href="{{ url_for('registro') }}" class="btn btn-light">Começar Agora</a>
+                <a href="{{ url_for('contato') }}" class="btn btn-outline">Falar com Vendas</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -6,47 +6,106 @@
 <div class="container">
     <div class="page-header">
         <h1>Configurações do Sistema</h1>
-        <p>Gerencie as configurações da plataforma e preferências</p>
+        <p>Gerencie as configurações da plataforma e preferências do usuário</p>
     </div>
 
     <div class="settings-content">
         <div class="settings-grid">
             <div class="settings-card">
                 <h3><i class="fas fa-bell"></i> Alertas e Notificações</h3>
-                <p>Configure os alertas e notificações do sistema</p>
+                <p>Configure os alertas e notificações do sistema de monitoramento</p>
                 <a href="#" class="btn btn-outline">Configurar</a>
             </div>
             
             <div class="settings-card">
                 <h3><i class="fas fa-chart-bar"></i> Parâmetros da Máquina</h3>
-                <p>Defina os limites e parâmetros operacionais</p>
+                <p>Defina os limites e parâmetros operacionais da máquina</p>
                 <a href="#" class="btn btn-outline">Configurar</a>
             </div>
             
             <div class="settings-card">
                 <h3><i class="fas fa-user-cog"></i> Perfil do Usuário</h3>
-                <p>Gerencie suas informações de perfil</p>
+                <p>Gerencie suas informações de perfil e preferências</p>
                 <a href="#" class="btn btn-outline">Configurar</a>
             </div>
 
             <div class="settings-card">
                 <h3><i class="fas fa-database"></i> Backup de Dados</h3>
-                <p>Configure backup automático dos dados</p>
+                <p>Configure backup automático dos dados do sistema</p>
                 <a href="#" class="btn btn-outline">Configurar</a>
             </div>
 
             <div class="settings-card">
                 <h3><i class="fas fa-shield-alt"></i> Segurança</h3>
-                <p>Configurações de segurança e acesso</p>
+                <p>Configurações de segurança e controle de acesso</p>
                 <a href="#" class="btn btn-outline">Configurar</a>
             </div>
 
             <div class="settings-card">
                 <h3><i class="fas fa-sliders-h"></i> Preferências</h3>
-                <p>Personalize a interface e preferências</p>
+                <p>Personalize a interface e preferências do sistema</p>
                 <a href="#" class="btn btn-outline">Configurar</a>
+            </div>
+        </div>
+
+        <div class="settings-info">
+            <h3>Informações do Sistema</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Versão da Plataforma:</strong>
+                    <span>2.1.0</span>
+                </div>
+                <div class="info-item">
+                    <strong>Última Atualização:</strong>
+                    <span>15/11/2023</span>
+                </div>
+                <div class="info-item">
+                    <strong>Status do Sistema:</strong>
+                    <span class="status-ok">Operacional</span>
+                </div>
+                <div class="info-item">
+                    <strong>Armazenamento:</strong>
+                    <span>1.2 GB / 5 GB</span>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+.settings-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.settings-info h3 {
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.status-ok {
+    color: #10b981;
+    font-weight: 500;
+}
+</style>
 {% endblock %}

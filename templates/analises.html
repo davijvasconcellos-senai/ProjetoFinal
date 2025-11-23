@@ -16,7 +16,7 @@
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <h3>Desempenho da Máquina</h3>
-                <p>Análise de tendências de desempenho e eficiência operacional</p>
+                <p>Análise de tendências de desempenho e eficiência operacional ao longo do tempo</p>
                 <a href="#" class="btn btn-primary">Ver Análise</a>
             </div>
             
@@ -25,7 +25,7 @@
                     <i class="fas fa-exclamation-triangle"></i>
                 </div>
                 <h3>Detecção de Anomalias</h3>
-                <p>Identificação de padrões anormais no funcionamento</p>
+                <p>Identificação de padrões anormais no funcionamento da máquina</p>
                 <a href="#" class="btn btn-primary">Ver Análise</a>
             </div>
             
@@ -34,7 +34,7 @@
                     <i class="fas fa-cogs"></i>
                 </div>
                 <h3>Vida Útil dos Componentes</h3>
-                <p>Previsão de vida útil e necessidade de substituição</p>
+                <p>Previsão de vida útil e necessidade de substituição de componentes</p>
                 <a href="#" class="btn btn-primary">Ver Análise</a>
             </div>
 
@@ -43,7 +43,7 @@
                     <i class="fas fa-bolt"></i>
                 </div>
                 <h3>Consumo Energético</h3>
-                <p>Análise de eficiência energética e otimização</p>
+                <p>Análise de eficiência energética e oportunidades de otimização</p>
                 <a href="#" class="btn btn-primary">Ver Análise</a>
             </div>
 
@@ -52,7 +52,7 @@
                     <i class="fas fa-thermometer-half"></i>
                 </div>
                 <h3>Monitoramento Térmico</h3>
-                <p>Análise de temperatura e controle térmico</p>
+                <p>Análise de temperatura e controle térmico do sistema laser</p>
                 <a href="#" class="btn btn-primary">Ver Análise</a>
             </div>
 
@@ -61,10 +61,46 @@
                     <i class="fas fa-history"></i>
                 </div>
                 <h3>Histórico de Manutenção</h3>
-                <p>Relatórios históricos e planejamento de manutenção</p>
+                <p>Relatórios históricos e planejamento de manutenção preventiva</p>
                 <a href="#" class="btn btn-primary">Ver Análise</a>
+            </div>
+        </div>
+
+        <div class="analises-actions">
+            <h3>Exportar Relatórios</h3>
+            <div class="export-buttons">
+                <button class="btn btn-outline">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+                <button class="btn btn-outline">
+                    <i class="fas fa-file-excel"></i> Excel
+                </button>
+                <button class="btn btn-outline">
+                    <i class="fas fa-file-csv"></i> CSV
+                </button>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+.analises-actions {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 2rem;
+}
+
+.analises-actions h3 {
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.export-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+</style>
 {% endblock %}
